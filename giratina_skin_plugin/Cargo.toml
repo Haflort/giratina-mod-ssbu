@@ -1,0 +1,24 @@
+[package]
+name = "giratina_skin"
+version = "1.0.0"
+authors = ["haflort"]
+edition = "2021"
+
+[package.metadata.skyline]
+titleid = "01006A800016E000"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+skyline = { git = "https://github.com/ultimate-research/skyline-rs" }
+smash = { package = "skyline_smash", git = "https://github.com/ultimate-research/skyline-smash" }
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+opt-level = 'z'
+panic = "abort"
+lto = true
+codegen-units = 1
